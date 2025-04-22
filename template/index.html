@@ -6,11 +6,14 @@
     <title>Dev aventureiro</title>
 </head>
 <body>
-    <h1>Olá Mundo</h1>
-    
+    <h1>Add new task</h1>
+    <form action="/create" method="POST">
+        <input type="text" name="description" required>
+        <button type="submit">Create Task</button>
+    </form>
+    <h1>Tasks</h1>
     {% for task in tasks %}
-        <h2>{{ task }}</h2>
+        <h2>{{ task.description }}</h2>
     {% endfor %}
-        
 </body>
 </html>
