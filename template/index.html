@@ -12,8 +12,21 @@
         <button type="submit">Create Task</button>
     </form>
     <h1>Tasks</h1>
-    {% for task in tasks %}
-        <h2>{{ task.description }}</h2>
-    {% endfor %}
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <form action="/update/{{ task.id }}" method="POST" style="display: inline;">
+                    <input type="text" name="description" value="{{ task.description }}" required>
+                    <button type="submit">Update Task</button>
+                </form>
+
+                <form action="/delete/{{ task.id }}" method="POST" style="display: inline;">
+                    <button type="submit">
+                        Delete task
+                    </button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
